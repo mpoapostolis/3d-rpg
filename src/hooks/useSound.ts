@@ -1,46 +1,48 @@
-import { useCallback, useEffect, useRef } from 'react';
-import { Howl } from 'howler';
+import { useCallback, useEffect, useRef } from "react";
+import { Howl } from "howler";
 
 const SOUNDS = {
   background: {
-    src: 'https://assets.codepen.io/21542/howler-demo-bg-music.mp3',
+    src: "/creepy-halloween-bell-trap-melody-247720.mp3",
     loop: true,
     volume: 0.2,
   },
   hit: {
-    src: 'https://assets.codepen.io/21542/sword-hit.mp3',
+    src: "/hit-sound-effect-240898.mp3",
     volume: 0.5,
   },
   collect: {
-    src: 'https://assets.codepen.io/21542/collect-item.mp3',
+    src: "/collect-5930.mp3",
     volume: 0.5,
   },
   npcGreeting: {
-    src: 'https://assets.codepen.io/21542/npc-greeting.mp3',
+    src: "/what-can-i-do-for-you-npc-british-male-99751.mp3",
     volume: 0.4,
   },
   questAccept: {
-    src: 'https://assets.codepen.io/21542/quest-accept.mp3',
+    src: "/level-passed-142971.mp3",
     volume: 0.4,
   },
   questComplete: {
-    src: 'https://assets.codepen.io/21542/quest-complete.mp3',
+    src: "/game-level-complete-143022.mp3",
     volume: 0.6,
   },
   enemyDeath: {
-    src: 'https://assets.codepen.io/21542/enemy-death.mp3',
+    src: "/male-death-sound-128357.mp3",
     volume: 0.5,
   },
   levelUp: {
-    src: 'https://assets.codepen.io/21542/level-up.mp3',
+    src: "/goodresult-82807.mp3",
     volume: 0.6,
-  }
+  },
 };
 
 type SoundType = keyof typeof SOUNDS;
 
 export function useSound() {
-  const soundsRef = useRef<Record<SoundType, Howl>>({} as Record<SoundType, Howl>);
+  const soundsRef = useRef<Record<SoundType, Howl>>(
+    {} as Record<SoundType, Howl>
+  );
 
   useEffect(() => {
     // Initialize sounds
@@ -57,7 +59,7 @@ export function useSound() {
 
     // Cleanup
     return () => {
-      Object.values(soundsRef.current).forEach(sound => sound.unload());
+      Object.values(soundsRef.current).forEach((sound) => sound.unload());
     };
   }, []);
 

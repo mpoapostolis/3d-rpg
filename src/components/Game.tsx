@@ -25,7 +25,7 @@ export default function Game() {
         shadow-camera-top={50}
         shadow-camera-bottom={-50}
       />
-      <Physics debug>
+      <Physics debug={false}>
         <World />
         <Player />
         <NPCs />
